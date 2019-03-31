@@ -3,6 +3,8 @@ A LaTex template for reports, based on the elegant NIPS 2018 style.
 
 This template retains the clean look of the single-column NIPS style, with the addition of a few extra options suitable for reports.
 
+---
+
 To use squared citation format:
 ```TeX
 \PassOptionsToPackage{square, numbers}{natbib}
