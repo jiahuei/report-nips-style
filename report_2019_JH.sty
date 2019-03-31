@@ -17,7 +17,7 @@
 % last revision: March 2018
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{report_2019_JH}[2019/03/31 submission/camera-ready style file based on 2018/03/03 NIPS 2018 file]
+\ProvidesPackage{report_2019_JH}[2019/03/31 submission/camera-ready style file based on 2018/03/03 NIPS and 2018/11/19 NeurIPS files]
 
 % declare letter-paper option, otherwise use A4
 \newif\if@letter\@letterfalse
@@ -66,7 +66,7 @@
 
 % change this every year for notice string at bottom
 %\newcommand{\@year}{2019}
-\usepackage[ddmmyyyy]{datetime}
+\RequirePackage[ddmmyyyy]{datetime}
 
 % handle tweaks for camera-ready copy vs. submission copy
 \if@preprint
@@ -204,16 +204,13 @@
                 { 0.5ex \@plus  0.2ex}%
                 {\normalsize\bf\raggedright}%
 }
-\providecommand{\subsubsubsection}{}
-\renewcommand{\subsubsubsection}{%
-  \vskip5pt{\noindent\normalsize\rm\raggedright}%
-}
+\setcounter{secnumdepth}{4}%                      show counters this far down
 \providecommand{\paragraph}{}
 \renewcommand{\paragraph}{%
   \@startsection{paragraph}{4}{\z@}%
-                {1.5ex \@plus 0.5ex \@minus 0.2ex}%
-                {-1em}%
-                {\normalsize\bf}%
+                {-1.5ex \@plus -0.5ex \@minus -0.2ex}%
+                { 0.5ex \@plus  0.2ex}%
+                {\normalsize\bf\raggedright}%
 }
 \providecommand{\subparagraph}{}
 \renewcommand{\subparagraph}{%
@@ -222,6 +219,10 @@
                 {-1em}%
                 {\normalsize\bf}%
 }
+\providecommand{\subsubsubsection}{}
+\renewcommand{\subsubsubsection}{\paragraph}
+\providecommand{\subsubsubsubsection}{}
+\renewcommand{\subsubsubsubsection}{\subparagraph}
 
 % float placement
 \renewcommand{\topfraction      }{0.85}
@@ -362,6 +363,9 @@
   % give a bit of extra room back to authors on first page
   \enlargethispage{2\baselineskip}%
   \@float{noticebox}[b]%
+    \kern -6pt%
+      \hrule width 1.5in height 0.4pt%
+    \kern 5.6pt%
     \footnotesize\@noticestring%
   \end@float%
 }
