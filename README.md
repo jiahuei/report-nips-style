@@ -34,3 +34,14 @@ List of options:
 \usepackage[options1,options2]{report_2019_JH}
 ```
 
+Subsections are numbered down until level 4 (x.x.x.x) by using either one of these:
+```TeX
+\paragraph{Subsection name}
+\subsubsubsection{Subsection name}
+```
+
+Subsections of level 5 are not numbered:
+```TeX
+\subparagraph{Subsection name}
+\subsubsubsubsection{Subsection name}
+```
