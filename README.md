@@ -20,7 +20,7 @@ To avoid loading the natbib package, add option nonatbib:
 \usepackage[nonatbib]{report_2019_JiaHuei}
 ```
 
-By default without options, the package will add line numbers and generate A4 size pages
+By default without options, the package will add line numbers and generate A4 size pages.
 For preprint, pass "preprint". For anonymised submission, pass "anonymise". For letter size, pass "letter".
 To generate final version, pass "final".
 
