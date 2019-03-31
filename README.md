@@ -17,7 +17,7 @@ To use APA citation format:
 \bibliographystyle{apa}
 ```
 
-To avoid loading the natbib package, add option nonatbib:
+To avoid loading the natbib package, add option "nonatbib":
 ```TeX
 \usepackage[nonatbib]{report_2019_JH}
 ```
