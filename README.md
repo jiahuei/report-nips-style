@@ -17,7 +17,7 @@ To use APA citation format:
 
 To avoid loading the natbib package, add option nonatbib:
 ```TeX
-\usepackage[nonatbib]{report_2019_JiaHuei}
+\usepackage[nonatbib]{report_2019_JH}
 ```
 
 By default without options, the package will add line numbers and generate A4 size pages.
@@ -28,8 +28,8 @@ List of options:
 4. final : To generate final version without line numbers.
 
 ```TeX
-\usepackage{report_2019_JiaHuei}
-\usepackage[options1]{report_2019_JiaHuei}
-\usepackage[options1,options2]{report_2019_JiaHuei}
+\usepackage{report_2019_JH}
+\usepackage[options1]{report_2019_JH}
+\usepackage[options1,options2]{report_2019_JH}
 ```
 
