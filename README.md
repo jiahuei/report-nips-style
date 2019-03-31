@@ -20,6 +20,7 @@ To avoid loading the natbib package, add option nonatbib:
 \usepackage[nonatbib]{report_2019_JH}
 ```
 
+---
 
 By default without options, the package will add line numbers and generate A4 size pages.
 List of options:
@@ -35,6 +36,7 @@ List of options:
 \usepackage[options1,options2]{report_2019_JH}
 ```
 
+---
 
 Subsections are numbered down until level 4 (x.x.x.x) by using either one of these:
 ```TeX
