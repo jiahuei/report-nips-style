@@ -24,7 +24,9 @@ By default without options, the package will add line numbers and generate A4 si
 For preprint, pass "preprint". For anonymised submission, pass "anonymise". For letter size, pass "letter".
 To generate final version, pass "final".
 
-```TeX\usepackage{report_2019_JiaHuei}
+```TeX
+\usepackage{report_2019_JiaHuei}
+\usepackage[options1]{report_2019_JiaHuei}
 \usepackage[options1,options2]{report_2019_JiaHuei}
 ```
 
