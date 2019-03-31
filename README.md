@@ -22,10 +22,11 @@ To avoid loading the natbib package, add option nonatbib:
 
 By default without options, the package will add line numbers and generate A4 size pages.
 List of options:
-1. preprint : Preprint version.
-2. anonymise: For anonymised submission. Will also add line numbers.
-3. letter : For letter sized page.
-4. final : To generate final version without line numbers.
+1. _none_ : Draft version, with line numbers.
+2. preprint : Preprint version.
+3. anonymise: For anonymised submission. Will also add line numbers.
+4. letter : For letter sized page.
+5. final : To generate final version without line numbers.
 
 ```TeX
 \usepackage{report_2019_JH}
