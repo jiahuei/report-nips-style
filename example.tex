@@ -17,7 +17,7 @@
 % \usepackage{report_2019_JH}
 % \usepackage[options1,options2]{report_2019_JH}
 
-\usepackage[final]{report_2019_JH}
+\usepackage[final,titlepage]{report_2019_JH}
 
 \usepackage{pgfgantt}
 \usepackage{setspace}
@@ -34,7 +34,6 @@
 \usepackage{enumitem}                   % allow roman-numbered lists
 
 % Include other packages here, before hyperref.
-\usepackage{color}
 \usepackage{url}
 \usepackage{float, adjustbox}
 \usepackage{booktabs, longtable, array}
@@ -67,9 +66,13 @@
 \newcommand{\gph}[2]{\includegraphics[width=#1\linewidth]{#2}}
 
 
+\global\newcommand{\universityLogo}{images/logo.png}            % Put university logo path here
+\global\newcommand{\university}{My university name}             % Put university name here
 
-\title{Maths Maths Maths Maths Maths}
-\author{Your Name \\ \tit{Project started on 31 March 2019}}
+\title{My Second Report}
+\author{Your Name \\ \tit{WHA 160016} \\ \AND
+        Co-author \\ \tit{Supervisor} \\ \AND
+        Co-author \\ \tit{Co-supervisor}}
 
 \begin{document}
 

@@ -19,6 +19,12 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{report_2019_JH}[2019/03/31 submission/camera-ready style file based on 2018/03/03 NIPS and 2018/11/19 NeurIPS files]
 
+% declare title-page option
+\newif\if@titlepage\@titlepagefalse
+\DeclareOption{titlepage}{
+  \@titlepagetrue
+}
+
 % declare letter-paper option, otherwise use A4
 \newif\if@letter\@letterfalse
 \DeclareOption{letter}{
@@ -291,73 +297,109 @@
 % create title
 \providecommand{\maketitle}{}
 \renewcommand{\maketitle}{%
-  \par
-  \begingroup
-    \renewcommand{\thefootnote}{\fnsymbol{footnote}}
-    % for perfect author name centering
-    \renewcommand{\@makefnmark}{\hbox to \z@{$^{\@thefnmark}$\hss}}
-    % The footnote-mark was overlapping the footnote-text,
-    % added the following to fix this problem               (MK)
-    \long\def\@makefntext##1{%
-      \parindent 1em\noindent
-      \hbox to 1.8em{\hss $\m@th ^{\@thefnmark}$}##1
-    }
-    \thispagestyle{empty}
-    \@maketitle
-    \@thanks
-    \@notice
-  \endgroup
-  \let\maketitle\relax
-  \let\thanks\relax
+  \if@titlepage
+    \newdateformat{mydate}{\twodigit{\THEDAY}{ }\monthname[\THEMONTH] \THEYEAR}
+    \begin{titlepage}
+    	\centering
+    	\includegraphics[height=0.1\textheight,width=0.3\textwidth,keepaspectratio]{\universityLogo}\par\vspace{1cm}
+    	{\scshape\Large \university \par}
+    	\vspace{0.075\textheight}
+    	{\Large\@maketitle}
+        
+    	\vfill
+        
+        % Bottom of the page
+    	{\large \mydate\today\par}
+    \end{titlepage}
+  \else
+      \par
+      \begingroup
+        \renewcommand{\thefootnote}{\fnsymbol{footnote}}
+        % for perfect author name centering
+        \renewcommand{\@makefnmark}{\hbox to \z@{$^{\@thefnmark}$\hss}}
+        % The footnote-mark was overlapping the footnote-text,
+        % added the following to fix this problem               (MK)
+        \long\def\@makefntext##1{%
+          \parindent 1em\noindent
+          \hbox to 1.8em{\hss $\m@th ^{\@thefnmark}$}##1
+        }
+        \thispagestyle{empty}
+        \@maketitle
+        \@thanks
+        \@notice
+      \endgroup
+      \let\maketitle\relax
+      \let\thanks\relax
+   \fi
 }
 
+% \p@=1pt, \z@=0pt
 % rules for title box at top of first page
+\RequirePackage{xcolor}
 \newcommand{\@toptitlebar}{
-  \hrule height 1.5\p@
+  {\color{black}\hrule height 1.5\p@}
   \vskip 0.25in
   \vskip -\parskip%
 }
 \newcommand{\@bottomtitlebar}{
   \vskip 0.29in
   \vskip -\parskip
-  \hrule height 1\p@
+  {\color{black!75}\hrule height 3\p@}
   \vskip 0.09in%
 }
 
-% create title (includes both anonymized and non-anonymized versions)
+% Create title (includes both anonymized and non-anonymized versions)
 \providecommand{\@maketitle}{}
 \renewcommand{\@maketitle}{%
+  \if@titlepage
+      \def\AND{%
+        \end{tabular}\hfil\linebreak[4]\hfil%
+        \vskip 4ex%
+        \begin{tabular}[t]{c}\bfseries\rule{\z@}{24\p@}\ignorespaces%
+      }
+      \def\And{\AND}
+  \else
+      \def\And{%
+        \end{tabular}\hfil\linebreak[0]\hfil%
+        \begin{tabular}[t]{c}\bfseries\rule{\z@}{24\p@}\ignorespaces%
+      }
+      \def\AND{%
+        \end{tabular}\hfil\linebreak[4]\hfil%
+        \begin{tabular}[t]{c}\bfseries\rule{\z@}{24\p@}\ignorespaces%
+      }
+  \fi
+  \def\genAnonymised{%
+    \begin{tabular}[t]{c}\bfseries\rule{\z@}{24\p@}
+      Anonymous Author(s) \\
+      Affiliation \\
+    \end{tabular}%
+  }
   \vbox{%
     \hsize\textwidth
     \linewidth\hsize
     \vskip 0.1in
     \@toptitlebar
     \centering
-    {\LARGE\bf \@title\par}
+    \if@titlepage
+      {\huge\bf \@title\par}
+    \else
+      {\LARGE\bf \@title\par}
+    \fi
     \@bottomtitlebar
     \if@anonymise
-      \begin{tabular}[t]{c}\bf\rule{\z@}{24\p@}
-        Anonymous Author(s) \\
-        Affiliation \\
-        Address \\
-        \texttt{email} \\
-      \end{tabular}%
+      \genAnonymised%
     \else
-      \def\And{%
-        \end{tabular}\hfil\linebreak[0]\hfil%
-        \begin{tabular}[t]{c}\bf\rule{\z@}{24\p@}\ignorespaces%
-      }
-      \def\AND{%
-        \end{tabular}\hfil\linebreak[4]\hfil%
-        \begin{tabular}[t]{c}\bf\rule{\z@}{24\p@}\ignorespaces%
-      }
-      \begin{tabular}[t]{c}\bf\rule{\z@}{24\p@}\@author\end{tabular}%
+      \if@titlepage
+        \vskip 0.075\textheight%
+      \fi
+      \begin{tabular}[t]{c}\bfseries\rule{\z@}{24\p@}\@author\end{tabular}%
     \fi
     \vskip 0.3in \@minus 0.1in
   }
 }
 
-% add conference notice to bottom of first page
+
+% add date to bottom of first page
 \newcommand{\ftype@noticebox}{8}
 \newcommand{\@notice}{%
   % give a bit of extra room back to authors on first page
