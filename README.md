@@ -19,7 +19,7 @@ List of options:
 ```TeX
 \usepackage{report_2019_JH}
 \usepackage[options1]{report_2019_JH}
-\usepackage[options1,options2]{report_2019_JH}
+\usepackage[options1,...,optionsN]{report_2019_JH}
 ```
 
 ### Title page
