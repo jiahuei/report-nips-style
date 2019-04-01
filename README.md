@@ -5,7 +5,7 @@ This template retains the clean look of the single-column NIPS style, with the a
 
 ---
 
-# Options
+## Options
 
 By default without options, the package will add line numbers and generate A4 size pages.
 List of options:
@@ -22,7 +22,7 @@ List of options:
 \usepackage[options1,options2]{report_2019_JH}
 ```
 
-## Title page
+### Title page
 
 If the "titlepage" option is used, the name and logo of the university can be set via:
 ```TeX
@@ -32,7 +32,7 @@ If the "titlepage" option is used, the name and logo of the university can be se
 
 ---
 
-# Citation
+## Citation
 
 To use squared citation format:
 ```TeX
@@ -53,7 +53,7 @@ To avoid loading the natbib package, add option "nonatbib":
 
 ---
 
-# Subsections
+## Subsections
 
 Subsections are numbered down until level 4 (x.x.x.x) by using either one of these:
 ```TeX
