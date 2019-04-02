@@ -17,7 +17,7 @@
 % \usepackage{report_2019_JH}
 % \usepackage[options1,options2]{report_2019_JH}
 
-\usepackage[preprint,titlepage]{report_2019_JH}
+\usepackage[final,titlepage]{report_2019_JH}
 
 
 % Packages imported in NIPS tex file
@@ -33,13 +33,11 @@
 % Other useful packages
 \usepackage{float}
 \usepackage{adjustbox}
-\usepackage{graphicx}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{array}
 \usepackage{enumitem}               % allow roman-numbered lists
 \usepackage{times}
-\usepackage{longtable}
 \usepackage{longtable}
 \usepackage{multirow}
 \usepackage{xspace}
@@ -67,19 +65,18 @@
 \newcolumntype{~}{>{\currentrowstyle}}
 \newcommand{\rowstyle}[1]{\gdef\currentrowstyle{#1}#1\ignorespaces }
 \newcommand{\rbf}{\rowstyle{\bfseries}}
-\newcommand{\tbf}[1]{\textbf{#1}}
-\newcommand{\tit}[1]{\textit{#1}}
 
 \newcommand{\norm}[1]{\left\lVert#1\right\rVert}
 \newcommand{\gph}[2]{\includegraphics[width=#1\linewidth]{#2}}
 
 
-\global\newcommand{\universityLogo}{images/logo.png}            % Put university logo path here
+\global\newcommand{\universityLogo}{images/logo1.png}            % Put university logo path here
 \global\newcommand{\university}{My university name}             % Put university name here
 
 \title{My Second Report}
-\author{Your Name \\ \tit{WHA 160016} \\ \AND
-        Co-author \\ \tit{Supervisor} }
+\author{Your Name \\ \textit{WHA 160016} \\ \AND
+        Co-author \\ \textit{Supervisor} \\ \AND
+        Co-author \\ \textit{Co-supervisor}}
 
 \begin{document}
 

@@ -3,6 +3,8 @@ A LaTex template for reports, based on the elegant NIPS 2018 style.
 
 This template retains the clean look of the single-column NIPS style, with the addition of a few extra options suitable for reports.
 
+See `example_minimal.pdf` and its TeX file for a short demonstration.
+
 ---
 
 ## Options
@@ -18,6 +20,7 @@ List of options:
 
 ```TeX
 \usepackage{report_2019_JH}
+\usepackage[]{report_2019_JH}
 \usepackage[options1]{report_2019_JH}
 \usepackage[options1,...,optionsN]{report_2019_JH}
 ```
@@ -55,13 +58,13 @@ To avoid loading the natbib package, add option "nonatbib":
 
 ## Subsections
 
-Subsections are numbered down until level 4 (x.x.x.x) by using either one of these:
+Subsections are numbered down until level 4 (x.x.x.x), and will appear in Table of Contents. Created by using either one of these:
 ```TeX
 \paragraph{Subsection name}
 \subsubsubsection{Subsection name}
 ```
 
-Subsections of level 5 are not numbered:
+Subsections of level 5 are not numbered, and will NOT appear in Table of Contents:
 ```TeX
 \subparagraph{Subsection name}
 \subsubsubsubsection{Subsection name}

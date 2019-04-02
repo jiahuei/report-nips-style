@@ -18,7 +18,7 @@
 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{report_2019_JH}[2019/03/31 submission/camera-ready style file based on 2018/03/03 NIPS and 2018/11/19 NeurIPS files]
-
+\RequirePackage{graphicx}
 
 % declare title-page option
 \newif\if@titlepage\@titlepagefalse
@@ -83,11 +83,11 @@
 \else
   \if@final
     \newcommand{\@noticestring}{%
-      \mydate\today%
+      \mydate\today.%
     }
   \else
     \newcommand{\@noticestring}{%
-      \mydate\today%
+      \mydate\today.%
     }
 
     % line numbers for submission
@@ -211,7 +211,8 @@
                 { 0.5ex \@plus  0.2ex}%
                 {\normalsize\bf\raggedright}%
 }
-\setcounter{secnumdepth}{4}%                      show counters this far down
+\setcounter{secnumdepth}{4}             % show counters this far down
+\setcounter{tocdepth}{4}                % table of content
 \providecommand{\paragraph}{}
 \renewcommand{\paragraph}{%
   \@startsection{paragraph}{4}{\z@}%
@@ -295,6 +296,7 @@
               \labelwidth\leftmarginvi
               \advance\labelwidth-\labelsep}
 
+% Anonymised authors
 \def\genAnonymised{%
   \begin{tabular}[t]{c}\bfseries\rule{\z@}{24\p@}
     Anonymous Author(s) \\
@@ -325,7 +327,7 @@
     	\includegraphics[height=0.15\textheight,width=0.55\textwidth,keepaspectratio]{\universityLogo}\par\vspace{1cm}
     	{\scshape\Large \university \par}
     	\vspace{0.075\textheight}
-    	{\Large\@maketitlepage}
+    	\@maketitlepage
         
         %\begin{tabular}[h]{m{\textwidth}}
         %  {\Large\@maketitle}
@@ -403,14 +405,12 @@
   }
 }
 
-\newcounter{authorNumLines}
 % Create title page
 \providecommand{\@maketitlepage}{}
 \renewcommand{\@maketitlepage}{%
   \def\AND{%
     \end{tabular}\hfil\linebreak[4]\hfil%
     \vskip 4ex%
-    \addtocounter{authorNumLines}{6}
     \begin{tabular}[t]{c}\bfseries\rule{\z@}{24\p@}\ignorespaces%
   }
   \def\And{\AND}
@@ -422,14 +422,14 @@
     \centering
     {\huge\bf \@title\par}
     \@bottomtitlebar
+    \vskip 0.11\textheight%
+    {\Large
     \if@anonymise
       \genAnonymised%
     \else
-      %\theauthorNumLines%
-      \edef\authorSkip{\dimexpr 0.2\textheight + \value{authorNumLines}ex\relax}
-      \vskip 0.175\textheight%
       \begin{tabular}[t]{c}\bfseries\rule{\z@}{24\p@}\@author\end{tabular}%
     \fi
+    }
     \vskip 0.3in \@minus 0.1in
   }
 }

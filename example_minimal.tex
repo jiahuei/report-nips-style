@@ -18,19 +18,23 @@
 \usepackage{microtype}              % microtypography
 
 
-\global\newcommand{\universityLogo}{images/logo.png}            % Put university logo path here
+\global\newcommand{\universityLogo}{images/logo1.png}            % Put university logo path here
 \global\newcommand{\university}{My university name}             % Put university name here
 
 \title{My Second Report}
-\author{Your Name \\ \tit{WHA 160016} \\ \AND
-        Co-author \\ \tit{Supervisor} \\ \AND
-        Co-author \\ \tit{Co-supervisor}}
+\author{Your Name \\ \textit{WHA 160016} \\ \AND
+        Co-author \\ \textit{Supervisor} \\ \AND
+        Co-author \\ \textit{Co-supervisor}}
 
 \begin{document}
 
 
 \maketitle
 
+\tableofcontents
+\listoffigures
+\listoftables
+\clearpage
 
 %-------------------------------------------------------------------------
 %-------------------------------------------------------------------------
@@ -52,35 +56,9 @@ Nothing to introduce here. Just a collection of maths.
 \section{Products}
 \label{sec: Products}
 
-%-------------------------------------------------------------------------
-\subsection{Inner product / Dot product}
-\label{subsec: Inner product}
-
-From \cite{wiki2019innerProd,wiki2019dotProd,wiki2019cosineSim}.
-
-For real numbers, inner product is the standard multiplication:
-
-\begin{equation}
-    \langle x, y\rangle := x y
-\end{equation}
-
-For vectors or column matrices:
-
-\begin{equation}
-    \left\langle\left[ \begin{array}{c}{ x_{1}} \\ {\vdots} \\ {x_{n}}\end{array}\right], \left[ \begin{array}{c}{y_{1}} \\ {\vdots} \\ {y_{n}}\end{array}\right]\right\rangle := x^{T} y=\sum_{i=1}^{n} x_{i} y_{i}=x_{1} y_{1}+\cdots+x_{n} y_{n}
-\end{equation}
-\noindent
-where $x, y \in\mathbb{R}\:^{n \times 1}$
-
-The scalar product or dot product, written $x \cdot y$, is a common special case of inner product. Geometrically, it is the product of the Euclidean magnitudes of the two vectors and the cosine of the angle between them. These definitions are equivalent when using Cartesian coordinates. 
-
-\begin{equation}
-    \mathbf{x} \cdot \mathbf{y}=\|\mathbf{x}\|\|\mathbf{y}\| \cos \theta
-\end{equation}
-
 
 %-------------------------------------------------------------------------
-\subsection{Outer product / Tensor product}
+\subsection[Outer product]{Outer product / Tensor product}
 \label{subsec: Outer product}
 
 From \cite{wiki2019outerProd}.
@@ -105,97 +83,68 @@ Tensor product is a generalisation of outer product \cite{wiki2019tensorProd}. T
 
 
 %-------------------------------------------------------------------------
-\subsection{Hadamard product}
-\label{subsec: Hadamard product}
+\subsubsection{A sub-subsection}
+\label{subsubsec: A sub-subsection}
 
-From \cite{wiki2019hadamardProd}.
-
-The Hadamard product (also known as the Schur product or the entrywise product) is a binary operation that takes two matrices of the same dimensions and produces another matrix where each element $i, j$ is the product of elements $i, j$ of the original two matrices. 
-
-For two matrices $\mathbf{A}$ and $\mathbf{B}$ of the same dimension $m \times n$, the Hadamard product $\mathbf{A} \circ \mathbf{B}$ is a matrix of the same dimension as the operands:
-
-\begin{equation}
-    (A \circ B)_{i j}=(A)_{i j}(B)_{i j}
-\end{equation}
-
-For example:
-
-\begin{equation}
-    \left[ \begin{array}{ccc}{a_{11}} & {a_{12}} & {a_{13}} \\ {a_{21}} & {a_{22}} & {a_{23}} \\ {a_{31}} & {a_{32}} & {a_{33}}\end{array}\right] \circ \left[ \begin{array}{ccc}{b_{11}} & {b_{12}} & {b_{13}} \\ {b_{21}} & {b_{22}} & {b_{23}} \\ {b_{31}} & {b_{32}} & {b_{33}}\end{array}\right]=\left[ \begin{array}{ccc}{a_{11} b_{11}} & {a_{12} b_{12}} & {a_{13} b_{13}} \\ {a_{21} b_{21}} & {a_{22} b_{22}} & {a_{23} b_{23}} \\ {a_{31} b_{31}} & {a_{32} b_{32}} & {a_{33} b_{33}}\end{array}\right]
-\end{equation}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas pulvinar leo id felis pulvinar aliquet. Phasellus placerat dignissim odio aliquam hendrerit. Nullam vel justo eget ex feugiat congue. Pellentesque sagittis congue ipsum. Sed dapibus, nibh eu blandit efficitur, arcu nisi suscipit risus, dignissim iaculis mi dui ut massa. Phasellus id sem tempus, congue nunc id, placerat quam. Sed gravida, erat vel finibus egestas, leo augue pretium turpis, at commodo enim augue vitae ipsum.
 
 
 %-------------------------------------------------------------------------
-\subsection{Circular correlation}
-\label{subsec: Circular correlation}
-
-From \cite{nickel2016holographic,plate1995holographic}, related: \cite{tay2017learning}.
-
-Circular correlation between two vectors $\mathbf{a} \star \mathbf{b}$ is defined as:
-
-\begin{equation}
-    y_k = \left[\mathbf{c} \star \mathbf{t}\right]_{k} = \sum_{i=0}^{d-1} c_{i} \, t_{(k+i) \bmod d} \qquad \text{for} \; i = 0, \dotsc, d-1
-\end{equation}
-\noindent
-where $\star : \mathbb{R}^{d} \times \mathbb{R}^{d} \rightarrow \mathbb{R}^{d}$
+\paragraph{A sub-sub-subsection}
+\label{paragraph: A sub-sub-subsection}
 
 \begin{figure}[h]
-\begin{minipage}{0.5\linewidth}
-    \begin{center}
-    \gph{0.5}{images/circular_correlation.png}
+	\begin{center}             % figure uses center environment
+        \includegraphics[width=0.2\linewidth]{images/logo2.png}
     \end{center}
-\end{minipage}
-\begin{minipage}{0.5\linewidth}
-    \begin{equation}
-        \begin{array}{c}{\mathbf{y} = \mathbf{c} \star \mathbf{t}} \\ {y_{0}=c_{0} t_{0}+c_{1} t_{1}+c_{2} t_{2}} \\ {y_{1}=c_{2} t_{0}+c_{0} t_{1}+c_{1} t_{2}} \\ {y_{2}=c_{1} t_{0}+c_{2} t_{1}+c_{0} t_{2}}\end{array}
-    \end{equation}
-\end{minipage}
-\caption{Circular correlation. Figure from \cite{plate1995holographic}, equations from \cite{plate1995holographic,nickel2016holographic}.}
+    \caption[A logo.]{A logo. Please don't sue me.}
+    \label{fig: Logo}          % label is always after caption
 \end{figure}
 
-Properties include:
 
-\begin{enumerate}[label=\roman*)]
-    \item {\tbf{Non Commutative} \\
-            Correlation, unlike convolution, is not commutative, \ie{} $\mathbf{a} \star \mathbf{b} \neq \mathbf{b} \star \mathbf{a}$. Non-commutativity is necessary to model asymmetric relations (directed graphs).}
-    \item {\tbf{Similarity Component} \\
-            In the correlation $\mathbf{a} \star \mathbf{b}$, a single component $[\mathbf{a} \star \mathbf{b}]_{0}=\sum_{i} a_{i} b_{i}$ corresponds to the dot product $\langle\mathbf{a}, \mathbf{b}\rangle$. The existence of such a component can be helpful to model relations in which the similarity of entities is important. No such component exists in circular convolution $\mathbf{a} \circledast \mathbf{b}$.}
-\end{enumerate}
+Etiam semper felis vitae purus dapibus, sit amet luctus massa tempor. Donec neque elit, vehicula eget facilisis vitae, rhoncus vel arcu. Nunc ultrices placerat felis eu vulputate. Praesent nunc arcu, rhoncus id accumsan vitae, tempus vitae velit. Maecenas vel nisl sit amet elit pulvinar hendrerit at at metus. Maecenas aliquet ullamcorper facilisis. Aliquam erat volutpat. Vestibulum quis diam nunc. Nunc sed sollicitudin orci. Nunc ut sem urna. Nunc blandit diam orci. Curabitur non pharetra diam, nec imperdiet urna. Fusce luctus nisl non nisi congue egestas. Nunc tincidunt commodo diam, et sagittis neque luctus malesuada. Curabitur auctor felis eu congue venenatis.
 
 
 %-------------------------------------------------------------------------
-\subsection{Circular convolution}
-\label{subsec: Circular convolution}
+\paragraph{Another sub-sub-subsection}
+\label{paragraph: Another sub-sub-subsection}
 
-From \cite{plate1995holographic,nickel2016holographic,dubois2017working}.
-
-\begin{equation}
-    t_k = \left[\mathbf{c} \circledast \mathbf{x}\right]_{k} = \sum_{i=0}^{d-1} c_{i} \, x_{(k-i) \bmod d} \qquad \text{for} \; i = 0, \dotsc, d-1
-\end{equation}
-\noindent
-where $\circledast : \mathbb{R}^{d} \times \mathbb{R}^{d} \rightarrow \mathbb{R}^{d}$
-
-
-\begin{figure}[h]
-\begin{minipage}{0.5\linewidth}
+\begin{table}[h]
+    \caption[A table.]{A table from Wikibooks.}
+    \label{table: Table}          % label is always after caption
     \begin{center}
-    \gph{0.5}{images/circular_convolution.png}
+        \begin{tabular}{ | l | l | l | p{5cm} |}
+        \hline
+        Day & Min Temp & Max Temp & Summary \\ \hline
+        Monday & 11C & 22C & A clear day with lots of sunshine.  
+        However, the strong breeze will bring down the temperatures. \\ \hline
+        Tuesday & 9C & 19C & Cloudy with rain, across many northern regions. Clear spells 
+        across most of Scotland and Northern Ireland, 
+        but rain reaching the far northwest. \\ \hline
+        Wednesday & 10C & 21C & Rain will still linger for the morning. 
+        Conditions will improve by early afternoon and continue 
+        throughout the evening. \\
+        \hline
+        \end{tabular}
     \end{center}
-\end{minipage}
-\begin{minipage}{0.5\linewidth}
-    \begin{equation}
-        \begin{array}{c}{\mathbf{t} = \mathbf{c} \circledast \mathbf{x}} \\ {t_{0}=c_{0} x_{0}+c_{2} x_{1}+c_{1} x_{2}} \\ {t_{1}=c_{1} x_{0}+c_{0} x_{1}+c_{2} x_{2}} \\ {t_{2}=c_{2} x_{0}+c_{1} x_{1}+c_{0} x_{2}}\end{array}
-    \end{equation}
-\end{minipage}
-\caption{Circular convolution. Figure and equations from \cite{plate1995holographic}.}
-\end{figure}
+\end{table}
 
-Properties include:
 
-\begin{enumerate}[label=\roman*)]
-    \item {\tbf{Commutative} \\
-                Convolution (cyclic or acyclic) is commutative, \ie{} $\mathbf{a} \circledast \mathbf{b} = \mathbf{b} \circledast \mathbf{a}$.}
-\end{enumerate}
+Nam dictum, mi non ornare semper, nunc tellus vehicula risus, quis blandit tortor velit et ex. Morbi viverra sit amet magna quis convallis. Etiam et neque dapibus, lobortis neque vestibulum, placerat mi. Vivamus ut ipsum vel enim blandit pellentesque. Integer nec nisl tellus. Donec aliquam accumsan ipsum, nec laoreet dui auctor id. Nullam rutrum augue neque, quis vestibulum tellus dapibus dictum. Vestibulum placerat metus et lectus sagittis venenatis.
+
+
+%-------------------------------------------------------------------------
+\subparagraph{A sub-sub-sub-subsection}
+\label{subparagraph: A sub-sub-sub-subsection}
+
+Nunc efficitur, mi id efficitur tempor, nulla diam facilisis risus, sit amet commodo ex arcu eu sem. Aliquam metus nisi, rhoncus in dictum at, posuere ut metus. Nunc tristique nisl eu velit sagittis, ut ornare odio porta. Sed mi nisl, tincidunt nec vehicula eget, accumsan quis urna. In hac habitasse platea dictumst. Praesent commodo sollicitudin pulvinar. Nullam pulvinar aliquam velit, ut fermentum augue convallis eu. Mauris interdum feugiat mollis.
+
+
+%-------------------------------------------------------------------------
+\subsubsection{Another sub-subsection}
+\label{subsubsec: Another sub-subsection}
+
+Vivamus ut nisl sagittis, ullamcorper felis eget, dictum arcu. Sed placerat aliquam tortor, sit amet sodales eros consequat ac. Donec imperdiet, dui eget rutrum sollicitudin, nisi tellus cursus felis, non fringilla sem nunc porta magna. Quisque enim arcu, porttitor et dignissim at, porttitor sed leo.
 
 
 
@@ -205,7 +154,7 @@ Properties include:
 
 
 \clearpage
-\singlespacing
+
 
 %\renewcommand\refname{Bibliography}
 \bibliography{ref}
