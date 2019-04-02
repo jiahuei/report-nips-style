@@ -19,6 +19,7 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{report_2019_JH}[2019/03/31 submission/camera-ready style file based on 2018/03/03 NIPS and 2018/11/19 NeurIPS files]
 
+
 % declare title-page option
 \newif\if@titlepage\@titlepagefalse
 \DeclareOption{titlepage}{
@@ -70,23 +71,23 @@
 \renewcommand{\rmdefault}{ptm}
 \renewcommand{\sfdefault}{phv}
 
-% change this every year for notice string at bottom
-%\newcommand{\@year}{2019}
+% notice string at bottom
 \RequirePackage[ddmmyyyy]{datetime}
+\newdateformat{mydate}{\twodigit{\THEDAY}{ }\monthname[\THEMONTH] \THEYEAR}
 
 % handle tweaks for camera-ready copy vs. submission copy
 \if@preprint
   \newcommand{\@noticestring}{%
-    Preprint. \today.%
+    Preprint. \mydate\today.%
   }
 \else
   \if@final
     \newcommand{\@noticestring}{%
-      \today%
+      \mydate\today%
     }
   \else
     \newcommand{\@noticestring}{%
-      \today%
+      \mydate\today%
     }
 
     % line numbers for submission
@@ -293,18 +294,21 @@
 \def\@listvi {\leftmargin\leftmarginvi
               \labelwidth\leftmarginvi
               \advance\labelwidth-\labelsep}
-
+\RequirePackage{array}
 % create title
 \providecommand{\maketitle}{}
 \renewcommand{\maketitle}{%
   \if@titlepage
-    \newdateformat{mydate}{\twodigit{\THEDAY}{ }\monthname[\THEMONTH] \THEYEAR}
     \begin{titlepage}
     	\centering
-    	\includegraphics[height=0.1\textheight,width=0.3\textwidth,keepaspectratio]{\universityLogo}\par\vspace{1cm}
+    	\includegraphics[height=0.15\textheight,width=0.55\textwidth,keepaspectratio]{\universityLogo}\par\vspace{1cm}
     	{\scshape\Large \university \par}
     	\vspace{0.075\textheight}
     	{\Large\@maketitle}
+        
+        %\begin{tabular}[h]{m{\textwidth}}
+        %  {\Large\@maketitle}
+        %\end{tabular}
         
     	\vfill
         
@@ -426,5 +430,6 @@
   \end{quote}%
   \vskip 1ex%
 }
+
 
 \endinput
