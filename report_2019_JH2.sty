@@ -295,6 +295,7 @@
               \labelwidth\leftmarginvi
               \advance\labelwidth-\labelsep}
 
+% Anonymous author
 \def\genAnonymised{%
   \begin{tabular}[t]{c}\bfseries\rule{\z@}{24\p@}
     Anonymous Author(s) \\
@@ -306,7 +307,12 @@
 \providecommand{\maketitle}{}
 \renewcommand{\maketitle}{%
   \if@titlepage
-    \pagenumbering{Alph}
+    \def\AND{%
+      \end{tabular}\hfil\linebreak[4]\hfil%
+      \vskip 4ex%
+      \begin{tabular}[t]{c}\bfseries\rule{\z@}{24\p@}\ignorespaces%
+    }
+    \def\And{\AND}
     \begin{titlepage}
       \par
       \begingroup
@@ -325,19 +331,32 @@
     	\includegraphics[height=0.15\textheight,width=0.55\textwidth,keepaspectratio]{\universityLogo}\par\vspace{1cm}
     	{\scshape\Large \university \par}
     	\vspace{0.075\textheight}
-    	{\Large\@maketitlepage}
         
-        %\begin{tabular}[h]{m{\textwidth}}
-        %  {\Large\@maketitle}
-        %\end{tabular}
+    	{\Large\@maketitlebar}
         
     	\vfill
+        \newbox\authorbox%
+        \sbox\authorbox\vbox{%
+          \hsize\textwidth%
+          \linewidth\hsize%
+          \centering%
+          {\Large%
+          \if@anonymise
+            \genAnonymised%
+          \else
+            \begin{tabular}[t]{c}\bfseries\rule{\z@}{24\p@}\@author\end{tabular}%
+          \fi
+          }
+        }
+        \usebox\authorbox%
+        
+        \edef\measuredHeight{\the\dimexpr 0.5\textheight - \ht\authorbox - \dp\authorbox\relax}
+        \vskip \measuredHeight
         
         % Bottom of the page
     	{\large \mydate\today\par}
       \endgroup
     \end{titlepage}
-    \pagenumbering{arabic}
   \else
       \par
       \begingroup
@@ -403,17 +422,11 @@
   }
 }
 
-\newcounter{authorNumLines}
-% Create title page
-\providecommand{\@maketitlepage}{}
-\renewcommand{\@maketitlepage}{%
-  \def\AND{%
-    \end{tabular}\hfil\linebreak[4]\hfil%
-    \vskip 4ex%
-    \addtocounter{authorNumLines}{6}
-    \begin{tabular}[t]{c}\bfseries\rule{\z@}{24\p@}\ignorespaces%
-  }
-  \def\And{\AND}
+% Create title bar without authors (for title page)
+\providecommand{\@maketitlebar}{}
+\renewcommand{\@maketitlebar}{%
+  %\newbox\titlebox%
+  %\setbox\titlebox\vbox{%
   \vbox{%
     \hsize\textwidth
     \linewidth\hsize
@@ -422,17 +435,11 @@
     \centering
     {\huge\bf \@title\par}
     \@bottomtitlebar
-    \if@anonymise
-      \genAnonymised%
-    \else
-      %\theauthorNumLines%
-      \edef\authorSkip{\dimexpr 0.2\textheight + \value{authorNumLines}ex\relax}
-      \vskip 0.175\textheight%
-      \begin{tabular}[t]{c}\bfseries\rule{\z@}{24\p@}\@author\end{tabular}%
-    \fi
-    \vskip 0.3in \@minus 0.1in
+    %\vskip 0.3in \@minus 0.1in
   }
+  %\usebox\titlebox
 }
+
 
 
 
