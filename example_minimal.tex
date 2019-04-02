@@ -113,18 +113,18 @@ Etiam semper felis vitae purus dapibus, sit amet luctus massa tempor. Donec nequ
     \caption[A table.]{A table from Wikibooks.}
     \label{table: Table}          % label is always after caption
     \begin{center}
-        \begin{tabular}{ | l | l | l | p{5cm} |}
-        \hline
-        Day & Min Temp & Max Temp & Summary \\ \hline
+        \begin{tabular}{ l | l  l  p{5cm} }
+        \toprule
+        Day & Min Temp & Max Temp & Summary \\ \midrule
         Monday & 11C & 22C & A clear day with lots of sunshine.  
-        However, the strong breeze will bring down the temperatures. \\ \hline
+        However, the strong breeze will bring down the temperatures. \\ \midrule
         Tuesday & 9C & 19C & Cloudy with rain, across many northern regions. Clear spells 
         across most of Scotland and Northern Ireland, 
-        but rain reaching the far northwest. \\ \hline
+        but rain reaching the far northwest. \\ \midrule
         Wednesday & 10C & 21C & Rain will still linger for the morning. 
         Conditions will improve by early afternoon and continue 
         throughout the evening. \\
-        \hline
+        \bottomrule
         \end{tabular}
     \end{center}
 \end{table}
