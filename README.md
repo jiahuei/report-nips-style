@@ -42,6 +42,11 @@ The difference between them is:
 * `\AND` forces a line break.
 * `\And` leaves it to LaTeX to determine where to break the lines.
 
+In the most minimal case:
+```TeX
+\author{Your Name}
+```
+
 ---
 
 ## Title page
