@@ -31,10 +31,10 @@ List of options:
 
 Multiple authors can be placed in the following format:
 ```TeX
-\author{Your Name \\ \textit{ID / Some text} \\ \AND
-        Co-author \\ \textit{Supervisor} \\ \AND
-        Co-author \\ \textit{Co-supervisor} \\ \And
-        Co-author \\ \textit{Co-supervisor} \\ \And
+\author{Your Name \\ \textit{ID / Some text}  \AND
+        Co-author \\ \textit{Supervisor}      \AND
+        Co-author \\ \textit{Co-supervisor}   \And
+        Co-author \\ \textit{Co-supervisor}   \And
         Co-author \\ \textit{Co-supervisor}}
 ```
 Authors are separated using `\AND` and `\And`.
