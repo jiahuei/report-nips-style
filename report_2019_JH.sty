@@ -60,10 +60,10 @@
 % declare nonatbib option, which does not load natbib in case of
 % package clash (users can pass options to natbib via
 % \PassOptionsToPackage)
-\newif\if@natbib\@natbibtrue
-\DeclareOption{nonatbib}{
-  \@natbibfalse
-}
+%\newif\if@natbib\@natbibtrue
+%\DeclareOption{nonatbib}{
+%  \@natbibfalse
+%}
 
 \ProcessOptions\relax
 
@@ -122,9 +122,9 @@
 \fi
 
 % load natbib unless told otherwise
-\if@natbib
-  \RequirePackage{natbib}
-\fi
+%\if@natbib
+%  \RequirePackage{natbib}
+%\fi
 
 % set page geometry: letter is 8.5 by 11 inches, A4 is 8.27 by 11.7 inches
 \if@letter
@@ -408,12 +408,15 @@
 % Create title page
 \providecommand{\@maketitlepage}{}
 \renewcommand{\@maketitlepage}{%
+  \def\And{%
+    \end{tabular}\hfil\linebreak[0]\hfil%
+    \begin{tabular}[t]{c}\bfseries\rule{\z@}{24\p@}\ignorespaces%
+  }
   \def\AND{%
     \end{tabular}\hfil\linebreak[4]\hfil%
     \vskip 4ex%
     \begin{tabular}[t]{c}\bfseries\rule{\z@}{24\p@}\ignorespaces%
   }
-  \def\And{\AND}
   \vbox{%
     \hsize\textwidth
     \linewidth\hsize

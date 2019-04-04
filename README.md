@@ -7,6 +7,33 @@ See `example_minimal.pdf` and its TeX file for a short demonstration.
 
 ---
 
+## Authors
+
+Multiple authors can be placed in the following format:
+```TeX
+\author{Your Name \\ \textit{ID / Some text} \\ \AND
+        Co-author \\ \textit{Supervisor} \\ \AND
+        Co-author \\ \textit{Co-supervisor} \\ \And
+        Co-author \\ \textit{Co-supervisor} \\ \And
+        Co-author \\ \textit{Co-supervisor}}
+```
+Authors are separated using `\And` and `\AND`.
+The difference between them is:
+* `\AND` forces a line break.
+* `\And` leaves it to LaTeX to determine where to break the lines.
+
+---
+
+## Title page
+
+If the "titlepage" option is used, the name and logo of the university can be set via:
+```TeX
+\newcommand{\universityLogo}{images/logo1.png}              % Put university logo path here
+\newcommand{\university}{My University / Faculty Name}      % Put university name here
+```
+
+---
+
 ## Options
 
 By default without options, the package will add line numbers and generate A4 size pages.
@@ -25,33 +52,39 @@ List of options:
 \usepackage[options1,...,optionsN]{report_2019_JH}
 ```
 
-### Title page
-
-If the "titlepage" option is used, the name and logo of the university can be set via:
-```TeX
-\global\newcommand{\universityLogo}{images/logo.png}            % Put university logo path here
-\global\newcommand{\university}{My university name}             % Put university name here
-```
-
 ---
 
 ## Citation
 
-To use squared citation format:
+### Squared citation format
 ```TeX
-\PassOptionsToPackage{square, numbers}{natbib}
+\usepackage[square, numbers]{natbib}
 \bibliographystyle{elsarticle-harv}
+
+\begin{document}
+
+\cite{xu2015show}
 ```
 
-To use APA citation format:
+### IEEE citation format
 ```TeX
-\PassOptionsToPackage{round}{natbib}
+\usepackage[square, numbers]{natbib}
+\bibliographystyle{IEEEtran}
+
+\begin{document}
+
+\cite{xu2015show}
+```
+
+### APA citation format
+```TeX
+\usepackage[round]{natbib}
 \bibliographystyle{apa}
-```
 
-To avoid loading the natbib package, add option "nonatbib":
-```TeX
-\usepackage[nonatbib]{report_2019_JH}
+\begin{document}
+
+\citep{xu2015show}    % wraps citation in parentheses:   (Xu et al., 2015)
+\citet{xu2015show}    % in-line citation:   Xu et al. (2015)
 ```
 
 ---

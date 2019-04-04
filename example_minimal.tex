@@ -1,7 +1,8 @@
 \documentclass{article}
 
 % To use squared citation format:
-\PassOptionsToPackage{square, numbers}{natbib}
+%\PassOptionsToPackage{square, numbers}{natbib}
+\usepackage[square, numbers]{natbib}
 \bibliographystyle{elsarticle-harv}
 
 \usepackage[final,titlepage]{report_2019_JH}
@@ -18,8 +19,8 @@
 \usepackage{microtype}              % microtypography
 
 
-\global\newcommand{\universityLogo}{images/logo1.png}            % Put university logo path here
-\global\newcommand{\university}{My university name}             % Put university name here
+\newcommand{\universityLogo}{images/logo1.png}              % Put university logo path here
+\newcommand{\university}{My University / Faculty Name}      % Put university name here
 
 \title{My Second Report}
 \author{Your Name \\ \textit{WHA 160016} \\ \AND
