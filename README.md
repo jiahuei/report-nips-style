@@ -37,7 +37,7 @@ Multiple authors can be placed in the following format:
         Co-author \\ \textit{Co-supervisor} \\ \And
         Co-author \\ \textit{Co-supervisor}}
 ```
-Authors are separated using `\And` and `\AND`.
+Authors are separated using `\AND` and `\And`.
 The difference between them is:
 * `\AND` forces a line break.
 * `\And` leaves it to LaTeX to determine where to break the lines.
