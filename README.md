@@ -7,6 +7,26 @@ See `example_minimal.pdf` and its TeX file for a short demonstration.
 
 ---
 
+## Options
+
+By default without options, the package will add line numbers and generate A4 size pages.
+List of options:
+1. _none_ : Draft version, with line numbers.
+1. titlepage : Produce a title page, with university name and logo.
+1. letter : For letter sized page.
+1. preprint : Preprint version.
+1. anonymise: For anonymised submission. Will also add line numbers.
+1. final : To generate final version without line numbers.
+
+```TeX
+\usepackage{report_2019_JH}
+\usepackage[]{report_2019_JH}
+\usepackage[options1]{report_2019_JH}
+\usepackage[options1,...,optionsN]{report_2019_JH}
+```
+
+---
+
 ## Authors
 
 Multiple authors can be placed in the following format:
@@ -30,26 +50,6 @@ If the "titlepage" option is used, the name and logo of the university can be se
 ```TeX
 \newcommand{\universityLogo}{images/logo1.png}              % Put university logo path here
 \newcommand{\university}{My University / Faculty Name}      % Put university name here
-```
-
----
-
-## Options
-
-By default without options, the package will add line numbers and generate A4 size pages.
-List of options:
-1. _none_ : Draft version, with line numbers.
-1. titlepage : Produce a title page, with university name and logo.
-1. letter : For letter sized page.
-1. preprint : Preprint version.
-1. anonymise: For anonymised submission. Will also add line numbers.
-1. final : To generate final version without line numbers.
-
-```TeX
-\usepackage{report_2019_JH}
-\usepackage[]{report_2019_JH}
-\usepackage[options1]{report_2019_JH}
-\usepackage[options1,...,optionsN]{report_2019_JH}
 ```
 
 ---
