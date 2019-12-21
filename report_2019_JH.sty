@@ -336,7 +336,12 @@
     	\vfill
         
         % Bottom of the page
-    	{\large \mydate\today\par}
+        \ifdefined\titlePageFootnote
+          {\large \mydate\today\par\titlePageFootnote\par}%
+        \else
+          {\large \mydate\today\par}%
+        \fi
+    	
       \endgroup
     \end{titlepage}
     \pagenumbering{arabic}
@@ -423,9 +428,16 @@
     \vskip 0.1in
     \@toptitlebar
     \centering
-    {\huge\bf \@title\par}
+    {\LARGE\bf \@title\par}
     \@bottomtitlebar
-    \vskip 0.11\textheight%
+    
+    \ifdefined\titlePageAuthorOffset
+      \vskip \dimexpr 0.08\textheight + \titlePageAuthorOffset \relax%
+    \else
+      \vskip 0.08\textheight%
+    \fi
+    
+    %\vskip 0.08\textheight%
     {\Large
     \if@anonymise
       \genAnonymised%
@@ -467,5 +479,19 @@
   \vskip 1ex%
 }
 
+% custom abstract styling
+\newenvironment{abstractCustomTitleNoIndent}[1]%
+{%
+  \vskip 0.075in%
+  \centerline%
+  {\large\bf #1}%
+  \vspace{0.5ex}%
+  %\begin{quote}%
+}
+{
+  \par%
+  %\end{quote}%
+  \vskip 1ex%
+}
 
 \endinput
