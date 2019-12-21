@@ -1,0 +1,410 @@
+\documentclass{article}
+
+\usepackage[square, numbers]{natbib}
+\bibliographystyle{elsarticle-harv}
+
+% By default without options, the package will add line numbers and generate A4 size pages
+% For preprint, pass "preprint". For anonymised submission, pass "anonymise". For letter size, pass "letter".
+% To generate final version, pass "final".
+% \usepackage{report_2019_JH}
+% \usepackage[options1,options2]{report_2019_JH}
+
+\usepackage[final]{report_2019_JH}
+
+
+% Packages imported in NIPS tex file
+\usepackage[utf8]{inputenc}         % allow utf-8 input
+\usepackage[T1]{fontenc}            % use 8-bit T1 fonts
+\usepackage{hyperref}               % hyperlinks
+\usepackage{url}                    % simple URL typesetting
+\usepackage{booktabs}               % professional-quality tables
+\usepackage{amsfonts}               % blackboard math symbols
+\usepackage{nicefrac}               % compact symbols for 1/2, etc.
+\usepackage{microtype}              % microtypography
+
+% Other useful packages
+\usepackage{float}
+\usepackage{adjustbox}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{array}
+\usepackage{enumitem}               % allow roman-numbered lists
+\usepackage{times}
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{xspace}
+\usepackage{listings}
+\usepackage{pgfgantt}
+\usepackage{setspace}
+%\doublespacing
+\onehalfspacing
+
+\DeclareRobustCommand{\eg}{e.g.\@\xspace}
+\DeclareRobustCommand{\ie}{i.e.\@\xspace}
+
+\makeatletter
+\DeclareRobustCommand{\etc}{%
+    \@ifnextchar{.}%
+    {etc}%
+    {etc.\@\xspace}%
+}
+\makeatother
+
+% Table & texts commands
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+
+\newcolumntype{`}{>{\global\let\currentrowstyle\relax}}
+\newcolumntype{~}{>{\currentrowstyle}}
+\newcommand{\rowstyle}[1]{\gdef\currentrowstyle{#1}#1\ignorespaces }
+\newcommand{\rbf}{\rowstyle{\bfseries}}
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\gph}[2]{\includegraphics[width=#1\linewidth]{#2}}
+\newcommand{\tbf}[1]{\textbf{#1}}
+\newcommand{\tit}[1]{\textit{#1}}
+
+\definecolor{lightgrey}{rgb}{0.9,0.9,0.9}
+\definecolor{darkgreen}{rgb}{0,0.6,0}
+\definecolor{cornellred}{rgb}{0.7, 0.11, 0.11}
+ 
+\lstset{language={[LaTeX]TeX},
+basicstyle=\ttfamily\small,
+texcsstyle=*\bf\color{cornellred},
+numbers=none,
+breaklines=true,
+keywordstyle=\color{darkgreen},
+commentstyle=\color{black!75},
+otherkeywords={$},
+frame=single,
+tabsize=4,
+captionpos=b}
+
+\title{\LaTeX\ Hacks}
+\author{Tan Jia Huei \\ \tit{Project started on March 2019}}
+
+\begin{document}
+
+
+\maketitle
+
+
+%-------------------------------------------------------------------------
+%-------------------------------------------------------------------------
+%-------------------------------------------------------------------------
+
+
+\section{Introduction}
+\label{sec: Introduction}
+
+A collection of \LaTeX\ tips and tricks.
+
+
+
+%-------------------------------------------------------------------------
+%-------------------------------------------------------------------------
+%-------------------------------------------------------------------------
+\section{Misc}
+\label{sec: Misc}
+
+%-------------------------------------------------------------------------
+\subsection{Useful Packages and Headers}
+\label{subsec: Useful Packages Headers}
+
+\begin{lstlisting}[language={[LaTeX]TeX}, caption={Useful packages to import.}]
+\usepackage{adjustbox}      % easy resizing of tables and figures
+\usepackage{booktabs}       % professional-quality tables
+\usepackage{hyperref}       % hyperlinks
+\usepackage{url}            % simple URL typesetting
+\usepackage{amsfonts}       % blackboard math symbols
+
+% Other useful packages
+\usepackage{float}
+\usepackage{amsmath}        % AMS
+\usepackage{amssymb}        % AMS
+\usepackage{array}
+\usepackage{longtable}      % tables that span across pages
+\usepackage{multirow}       % row-merging in tables
+\usepackage{enumitem}       % fancy lists
+\usepackage{xspace}         % spacing
+\usepackage{setspace}       % line spacing
+\end{lstlisting}
+
+The following are useful shortcuts.
+
+\begin{lstlisting}[language={[LaTeX]TeX}, caption={Useful headers.}]
+\DeclareRobustCommand{\eg}{e.g.\@\xspace}
+\DeclareRobustCommand{\ie}{i.e.\@\xspace}
+
+\makeatletter
+\DeclareRobustCommand{\etc}{%
+   	\@ifnextchar{.}%
+   	{etc}%
+   	{etc.\@\xspace}%
+}
+\makeatother
+\end{lstlisting}
+
+
+%-------------------------------------------------------------------------
+\subsection{Table of Contents}
+\label{subsec: Table of Contents}
+
+The various listings can be generated as follows:
+\begin{lstlisting}[language={[LaTeX]TeX}, caption={Various listings of content.}]
+\tableofcontents
+\listoffigures
+\listoftables
+\end{lstlisting}
+
+Alternative short names for Table of Contents, Figures and Tables can be provided:
+
+\begin{lstlisting}[language={[LaTeX]TeX}, caption={Alternative short names.}]
+\section[shortname]{longname}
+\caption[shortdesc]{longdesc}
+\end{lstlisting}
+
+
+%-------------------------------------------------------------------------
+%-------------------------------------------------------------------------
+%-------------------------------------------------------------------------
+\section{Tables}
+\label{sec: Tables}
+
+
+
+\begin{lstlisting}[language={[LaTeX]TeX}, caption={Alternative short names.}]
+
+*********************************************************************************************
+*********************************************************************************************
+*** Create table as float ***
+
+\begin{table}
+    \begin{tabular}
+* Put a table environment around the tabular environment
+
+
+
+*********************************************************************************************
+*********************************************************************************************
+*** Creating table using `booktabs` ***
+
+\usepackage{booktabs}
+\begin{tabular}{llr}  
+\toprule
+\multicolumn{2}{c}{Item} \\
+\cmidrule(r){1-2}
+Animal    & Description & Price (\$) \\
+\midrule
+Gnat      & per gram    & 13.65      \\
+          &    each     & 0.01       \\
+Gnu       & stuffed     & 92.50      \\
+Emu       & stuffed     & 33.33      \\
+Armadillo & frozen      & 8.99       \\
+\bottomrule
+\end{tabular}
+
+* Table column specifications:
+	l		left-justified column
+	c		centered column
+	r		right-justified column
+	p{'width'}	paragraph column with text vertically aligned at the top
+	m{'width'}	paragraph column with text vertically aligned in the middle (requires array package)
+	b{'width'}	paragraph column with text vertically aligned at the bottom (requires array package)
+	|		vertical line
+	||		double vertical line
+	@{}		suppress space. For example: `{|@{}l|l@{}|}` removes left-space of 1st column, and right-space of 2nd column.
+	@{\hskip 4\tabcolsep}	adds space, specifically 4 column-separation
+	*{k}l		create k-number of left-justified columns
+
+* Column and row spacing (must use inside `\table` environment):
+	\setlength{\tabcolsep}{6pt}		general space between cols (6pt is standard)
+	\renewcommand{\arraystretch}{1}		general space between rows (1 is standard)
+
+* \cmidrule can be shortened from left or right by
+	\cmidrule(l{4pt}){2-3}
+	\cmidrule(r{4pt}){2-3}
+	\cmidrule(lr){2-3}		% shorten cmidrule to produce a gap between multiple `cmidrule`
+
+* Use `\newline` to start a new line within a cell (in a paragraph column)
+* Paragraph column:
+	Flushed left without justification:
+		\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+		\begin{tabular}{L{\dimexpr0.22\linewidth\relax}}
+		\begin{tabular}{@{}p{0.12\linewidth}*{4}{L{\dimexpr0.22\linewidth-2\tabcolsep\relax}}@{}}
+	Centered:
+		\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+		\begin{tabular}{C{\dimexpr0.22\linewidth\relax}}
+
+
+*********************************************************************************************
+*********************************************************************************************
+*** Specify font format (such as bold, italic, etc.) for entire column / row ***
+
+* Column:
+You can add >{\format} before you declare the alignment. For example:
+	\begin{tabular}{ >{\bfseries}l c >{\itshape}r }
+will indicate a three column table with the first one aligned to the left and in bold font, the second one aligned in the center and with normal font, and the third aligned to the right and in italic.
+
+* Row:
+	\newcolumntype{`}{>{\global\let\currentrowstyle\relax}}			% modifier for 1st column
+	\newcolumntype{^}{>{\currentrowstyle}}					% modifier for subsequent columns
+	\newcommand{\rowstyle}[1]{\gdef\currentrowstyle{#1}#1\ignorespaces }
+	\newcommand{\rbf}{\rowstyle{\bfseries}}
+Add the modifiers when declaring the table:
+	\begin{tabular}{`l ^c ^r }
+Then at the desired row, add `\rbf`
+
+
+*********************************************************************************************
+*********************************************************************************************
+*** Fine-tuning vertical position of multirow ***
+
+\multirow{5}{*}[-2pt]
+
+* Arg #1: Number of rows to combine
+* Arg #2: Width of row, can be a value or `*` for automatic
+* Arg #3: Vertical position offset
+
+
+
+*********************************************************************************************
+*********************************************************************************************
+*** Footnotes under a table, with a caption ***
+
+* Can try `ctable` package.
+* It provides the option of a short caption given to be inserted in the list of tables, instead of the actual caption (which may be quite long and inappropriate for the list of tables).
+* The ctable uses the booktabs package.
+
+
+
+*********************************************************************************************
+*********************************************************************************************
+*** Fit table or figure inside page ***
+
+\begin{adjustbox}{max width=1.0\linewidth}
+	\begin{tabular}
+
+\begin{adjustbox}{max width=1.0\linewidth}
+	\begin{figure}
+
+
+
+*********************************************************************************************
+*********************************************************************************************
+*** Rotate table or figure ***
+
+\usepackage{rotating}
+
+\begin{sidewaystable}
+
+\begin{sidewaysfigure}
+
+
+
+*********************************************************************************************
+*********************************************************************************************
+*** Ordered list with Roman numerals ***
+
+* Use `enumitem` package
+	\begin{enumerate}[label=(\roman*)]		Roman; (i), (ii)
+	\begin{enumerate}[label=\roman*)]		Roman; i), ii)
+	\begin{enumerate}[label=\arabic*)]		Arabic; 1), 2)
+	\begin{enumerate}[label=\alph*)]		Alphabet; a), b)
+
+
+
+*********************************************************************************************
+*********************************************************************************************
+*** Creating new command ***
+
+\newcommand{\xxx}[3]{\multirow{#1}{#2\linewidth}{#3}}
+
+* `\xxx` is the new command
+* Value inside [] is the number of arguments for the new command
+
+
+
+*********************************************************************************************
+*********************************************************************************************
+*** Creating a variable ***
+
+\newcommand{\xxx}{some text}
+
+* Put `some text` into document text by calling `\xxx{}`
+
+
+
+*********************************************************************************************
+*********************************************************************************************
+*** Misc Commands ***
+
+* `\relax` does nothing by itself, it is a safe command to stop expansion of another command.
+
+
+
+*********************************************************************************************
+*********************************************************************************************
+*** Set line spacing ***
+
+\usepackage{setspace}		% this does not affect the line spacing of captions
+\onehalfspacing			% \doublespacing, \singlespacing
+
+\begin{document}
+
+\begin{singlespace}
+    % only affects a part of the document
+\end{singlespace}
+
+\singlespacing
+% affects the rest of the document until another specifier is encountered
+
+
+
+*********************************************************************************************
+*********************************************************************************************
+*** Gantt chart ***
+
+\usepackage{pgfgantt}
+
+
+
+
+*********************************************************************************************
+*********************************************************************************************
+*** Colours ***
+
+* Use package `xcolor`
+
+
+\colorlet{LightRubineRed}{RubineRed!70!}
+	A new colour named LightRubineRed is created, this colour has 70% the intensity of the original RubineRed colour. You can think of it as a mixture of 70% RubineRed and 30% white. Defining colours in this way is great to obtain different tones of a main colour, common practice in corporate brands. In the example, you can see the original RubineRed and the new LightRubineRed used in two consecutive horizontal rulers.
+
+\colorlet{Mycolor1}{green!10!orange!90!}
+	A colour named Mycolor1 is created with 10% green and 90%orange. You can use any number of colours to create new ones with this syntax.
+
+	\definecolor{Mycolor2}{HTML}{00F9DE}
+The colour Mycolor2 is created using the HTML model. Colours in this model must be created with 6 hexadecimal digits, the characters A,B,C,D,E and F must be upper-case.
+
+\definecolor{mypink1}{rgb}{0.858, 0.188, 0.478}
+\definecolor{mypink2}{RGB}{219, 48, 122}
+\definecolor{mypink3}{cmyk}{0, 0.7808, 0.4429, 0.1412}
+	
+	Other colour models include cmy (cyan, magenta, yellow), hsb (hue, saturation, brightness), etc
+
+
+
+\end{lstlisting}
+
+
+
+
+
+
+
+\clearpage
+\singlespacing
+
+%\renewcommand\refname{Bibliography}
+\bibliography{ref}
+\end{document}
