@@ -38,6 +38,12 @@ Multiple authors can be placed in the following format:
         Co-author \\ \textit{Co-supervisor}   \And
         Co-author \\ \textit{Co-supervisor}   \And
         Co-author \\ \textit{Co-supervisor}}
+
+\author{Your Name \AND
+        Co-author \AND
+        Co-author \And
+        Co-author \And
+        Co-author }
 ```
 Authors are separated using `\AND` and `\And`.
 The difference between them is:
@@ -67,6 +73,21 @@ Optional:
 * Author vertical placement can be adjusted:
 ```Tex
 \newcommand{\titlePageAuthorOffset}{-0.03\textheight}
+```
+
+Combining everything:
+```Tex
+\newcommand{\universityLogo}{logo.png}
+\newcommand{\university}{University of Life}
+\newcommand{\titlePageFootnote}{Progress Report}
+\newcommand{\titlePageAuthorOffset}{-0.03\textheight}
+
+\title{My Work}
+\author{Your Name \\ \textit{ID / Some text}  \AND
+        Co-author \\ \textit{Supervisor}      \AND
+        Co-author \\ \textit{Co-supervisor}}
+
+\begin{document}
 ```
 
 
@@ -106,7 +127,6 @@ Optional:
 
 
 ---
-
 ## Subsections
 
 Subsections are numbered down until level 4 (x.x.x.x), and will appear in Table of Contents. Created by using either one of these:
