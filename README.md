@@ -29,27 +29,6 @@ List of options:
 
 
 ---
-
-## Title page
-
-If the "titlepage" option is used, the name and logo of the university can be set via:
-```TeX
-\newcommand{\universityLogo}{images/logo1.png}              % Put university logo path here
-\newcommand{\university}{My University / Faculty Name}      % Put university name here
-```
-
-Optional:
-* Footnote can be provided:
-```Tex
-\newcommand{\titlePageFootnote}{Complete Research Progress Report}
-```
-* Author vertical placement can be adjusted:
-```Tex
-\newcommand{\titlePageAuthorOffset}{-0.03\textheight}
-```
-
-
----
 ## Authors
 
 Multiple authors can be placed in the following format:
@@ -68,6 +47,26 @@ The difference between them is:
 In the most minimal case:
 ```TeX
 \author{Your Name}
+```
+
+
+---
+## Title page
+
+If the "titlepage" option is used, the name and logo of the university can be set via:
+```TeX
+\newcommand{\universityLogo}{images/logo1.png}              % Put university logo path here
+\newcommand{\university}{My University / Faculty Name}      % Put university name here
+```
+
+Optional:
+* Footnote can be provided:
+```Tex
+\newcommand{\titlePageFootnote}{Complete Research Progress Report}
+```
+* Author vertical placement can be adjusted:
+```Tex
+\newcommand{\titlePageAuthorOffset}{-0.03\textheight}
 ```
 
 
