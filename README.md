@@ -27,8 +27,29 @@ List of options:
 \usepackage[options1,...,optionsN]{report_2019_JH}
 ```
 
+
 ---
 
+## Title page
+
+If the "titlepage" option is used, the name and logo of the university can be set via:
+```TeX
+\newcommand{\universityLogo}{images/logo1.png}              % Put university logo path here
+\newcommand{\university}{My University / Faculty Name}      % Put university name here
+```
+
+Optional:
+* Footnote can be provided:
+```Tex
+\newcommand{\titlePageFootnote}{Complete Research Progress Report}
+```
+* Author vertical placement can be adjusted:
+```Tex
+\newcommand{\titlePageAuthorOffset}{-0.03\textheight}
+```
+
+
+---
 ## Authors
 
 Multiple authors can be placed in the following format:
@@ -49,18 +70,8 @@ In the most minimal case:
 \author{Your Name}
 ```
 
----
-
-## Title page
-
-If the "titlepage" option is used, the name and logo of the university can be set via:
-```TeX
-\newcommand{\universityLogo}{images/logo1.png}              % Put university logo path here
-\newcommand{\university}{My University / Faculty Name}      % Put university name here
-```
 
 ---
-
 ## Citation
 
 ### Squared citation format
@@ -93,6 +104,7 @@ If the "titlepage" option is used, the name and logo of the university can be se
 \citep{xu2015show}    % wraps citation in parentheses:   (Xu et al., 2015)
 \citet{xu2015show}    % in-line citation:   Xu et al. (2015)
 ```
+
 
 ---
 
